@@ -32,3 +32,15 @@ Y, finalmente, el *poetry.lock* será leído instalando todas las dependencias y
 #### Ejecución
 
 ```$ poetry run python3 app.py```
+
+### Front App
+
+#### Dependencias
+
+```npm install```
+
+#### Ejecución
+
+Ejecutar el siguiente comando y acceder a ```localhost:3000```desde un navegador.
+
+```npm run dev```
