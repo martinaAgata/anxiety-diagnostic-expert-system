@@ -31,7 +31,7 @@ Y, finalmente, el *poetry.lock* será leído instalando todas las dependencias y
 
 #### Ejecución
 
-Ejecutar el siguiente comando y acceder a ```localhost:8000/docs```desde un navegador para visualizar la API.
+Utilizar el siguiente comando y acceder a ```localhost:8000/docs``` desde un navegador para visualizar la API:
 
 ```$ poetry run python3 app.py```
 
@@ -43,6 +43,6 @@ Ejecutar el siguiente comando y acceder a ```localhost:8000/docs```desde un nave
 
 #### Ejecución
 
-Ejecutar el siguiente comando y acceder a ```localhost:3000```desde un navegador.
+Utilizar el siguiente comando y acceder a ```localhost:3000``` desde un navegador:
 
 ```$ npm run dev```
