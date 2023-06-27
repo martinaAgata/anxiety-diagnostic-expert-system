@@ -1,6 +1,6 @@
 ## Sistema de diagnóstico de trastornos de ansiedad
 
-Sistema experto para el diagnóstico de trastornos psicológicos de ansiedad.
+Sistema experto para el diagnóstico de trastornos psicológicos de ansiedad
 
 
 ### Backend
