@@ -27,8 +27,8 @@ class DiagnosticoPrevio(Enum):
 
 
 class AntecedentesFamiliares(Enum):
-    NO = 0 # no existen antecedentes familiares
-    SI = 1 # existen antecedentes familiares
+    NO = 0  # no existen antecedentes familiares
+    SI = 1  # existen antecedentes familiares
 
 
 class Diagnostico(Enum):
@@ -45,36 +45,44 @@ class Diagnosticador(KnowledgeEngine):
         print("Inicializando sistema experto...")
         self.diagnostico = []
 
-
     # ANSIEDAD POR SEPARACIÓN
-    @Rule(Fact(Sintomas.ANGUSTIA_ALTA), Sintomas.APEGO_ALTO)
+    @Rule(Fact(Sintomas.ANGUSTIA_ALTA), Fact(Sintomas.APEGO_ALTO))
     def ansiedad_por_separacion(self):
-        self.diagnostico += Diagnostico.ANSIEDAD_POR_SEPARACION
+        self.diagnostico.append(Diagnostico.ANSIEDAD_POR_SEPARACION)
 
-    """
     # ANSIEDAD GENERALIZADA
-    @Rule(Fact(Sintomas.ANGUSTIA_ALTA),
-          OR(Fact(OR(Sintomas.DIFICULTAD_RESPIRAR_ALTA, Sintomas.PROBLEMAS_SUEÑO_ALTO))),
-          Fact(AntecedentesFamiliares.SI))
+    @Rule(
+        Fact(Sintomas.ANGUSTIA_ALTA),
+        OR(
+            Fact(Sintomas.DIFICULTAD_RESPIRAR_ALTA),
+            Fact(Sintomas.PROBLEMAS_SUEÑO_ALTO),
+        ),
+        Fact(AntecedentesFamiliares.SI),
+    )
     def ansiedad_generalizada(self):
-        self.diagnostico = Diagnostico.ANSIEDAD_GENERALIZADA.value
-
+        self.diagnostico.append(Diagnostico.ANSIEDAD_GENERALIZADA)
 
     # TRASTORNO DE PANICO
-    @Rule(Fact(Sintomas.ANGUSTIA_MEDIA),
-          OR(Fact(Sintomas.DIFICULTAD_RESPIRAR_ALTA), Fact(Sintomas.TEMOR_REPENTINO_ALTO), Fact(DiagnosticoPrevio.SI)))
+    @Rule(
+        Fact(Sintomas.ANGUSTIA_MEDIA),
+        OR(
+            Fact(Sintomas.DIFICULTAD_RESPIRAR_ALTA),
+            Fact(Sintomas.TEMOR_REPENTINO_ALTO),
+            Fact(DiagnosticoPrevio.SI),
+        ),
+    )
     def panico(self):
-        self.diagnostico = Diagnostico.TRASTORNO_DE_PANICO.value
-
+        self.diagnostico.append(Diagnostico.TRASTORNO_DE_PANICO)
 
     # ANSIEDAD SOCIAL
-    @Rule(OR(Fact(Sintomas.MIEDO_IRRACIONAL_ALTO)),
-             Fact(Sintomas.DIFICULTAD_SOCIAL_ALTA))
+    @Rule(
+        OR(Fact(Sintomas.MIEDO_IRRACIONAL_ALTO)), Fact(Sintomas.DIFICULTAD_SOCIAL_ALTA)
+    )
     def ansiedad_social(self):
-        self.diagnostico = Diagnostico.FOBIA_SOCIAL.value
-    """
+        self.diagnostico.append(Diagnostico.FOBIA_SOCIAL)
 
     # DEFAULT RULE
-    @Rule
+    @Rule()
     def default(self):
-        self.diagnostico += Diagnostico.SIN_DIAGNOSTICO
+        if not self.diagnostico:
+            self.diagnostico.append(Diagnostico.SIN_DIAGNOSTICO)
