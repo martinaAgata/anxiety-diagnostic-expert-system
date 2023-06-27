@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "project-name"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.66.0" 
+uvicorn = "^0.14.0"
+experta = "1.9.4"
