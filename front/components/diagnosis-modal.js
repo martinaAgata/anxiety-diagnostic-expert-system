@@ -1,6 +1,6 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/24/outline'
+import { LightBulbIcon } from '@heroicons/react/24/outline'
 
 
 export default function DiagnosisModal() {
@@ -36,18 +36,24 @@ export default function DiagnosisModal() {
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-center shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md mx-auto">
                 <div className="flex flex-col items-center justify-center bg-white px-4 pb-4 pt-5">
                   <div className="flex items-center justify-center mt-3">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:h-10 sm:w-10">
-                      <CheckIcon className="h-6 w-6 text-green-900" aria-hidden="true" />
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full sm:h-10 sm:w-10">
+                      <LightBulbIcon className="h-6 w-6" aria-hidden="true" />
                     </div>
                   </div>
                   <div className="flex items-center justify-center mt-3">
                     <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900 ml-4">
-                      Payment success
+                      Diagnóstico: Trastorno de fobia social
                     </Dialog.Title>
                   </div>
                   <div className="mt-2 text-center">
                     <p className="text-sm text-gray-500">
-                      You journey starts now!
+                      Se caracteriza por un miedo intenso o ansiedad en situaciones sociales donde existe la posibilidad de ser juzgado o avergonzado por los demás.
+                      Los síntomas clave incluyen:
+                      Temor persistente a ser humillado, avergonzado o evaluado negativamente.
+                      Evitación o malestar significativo en situaciones sociales.
+                      Dificultades para establecer o mantener relaciones sociales.
+                      Ansiedad anticipatoria antes de las situaciones sociales.
+                      Reconocimiento de que el miedo es excesivo o irracional.
                     </p>
                   </div>
                 </div>
