@@ -3,12 +3,22 @@ import logging
 from fastapi import FastAPI, HTTPException
 from starlette import status
 from sistema_experto import *
-
+from fastapi.middleware.cors import CORSMiddleware
 from utils import DiagnosticoRequest, obtener_antecedentes, obtener_diagnostico_previo, obtener_sintoma
 
 
 app = FastAPI()
 logger = logging.getLogger("app")
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.post("/diagnostico", status_code=status.HTTP_200_OK)
