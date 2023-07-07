@@ -23,7 +23,6 @@ export default function Home() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
-              <h2 className="text-base font-semibold leading-7 text-red-600">skere</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Test de trastornos de ansiedad</p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 Un test para el diagnóstico de trastornos de ansiedad desarrollado con y para profesionales
@@ -45,9 +44,6 @@ export default function Home() {
                   className="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
                   Comenzar evaluación
-                </NextLink>
-                <NextLink href="#" className="text-sm font-semibold text-gray-900">
-                  Aprender sobre trastornos de ansiedad <span aria-hidden="true">&rarr;</span>
                 </NextLink>
               </div>
             </div>
