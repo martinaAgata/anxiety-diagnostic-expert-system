@@ -31,7 +31,7 @@ Y, finalmente, el *poetry.lock* será leído instalando todas las dependencias y
 
 #### Ejecución
 
-Utilizar el siguiente comando y acceder a ```localhost:8000/docs``` desde un navegador para visualizar la API:
+Utilizar el siguiente comando desde la carpeta donde se encuentra el archivo app.py para levantar el backend. Si se desea, acceder a ```localhost:8000/docs``` desde un navegador para visualizar la API:
 
 ```$ poetry run python3 app.py```
 
