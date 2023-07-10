@@ -46,3 +46,17 @@ Utilizar el siguiente comando desde la carpeta donde se encuentra el archivo app
 Utilizar el siguiente comando y acceder a ```localhost:3000``` desde un navegador:
 
 ```$ npm run dev```
+
+#### Preview
+
+##### Home
+
+![img (1)](preview/home.png "home.png")
+
+##### Form
+
+![img (2)](preview/form.png "form.png")
+
+##### Diagnóstico
+
+![img (3)](preview/diagnostic.png "diagnostic.png")
