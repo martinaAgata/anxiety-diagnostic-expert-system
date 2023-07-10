@@ -42,12 +42,12 @@ class Diagnosticador(KnowledgeEngine):
     def __init__(self):
         super().__init__()
         print("Inicializando sistema experto...")
-        self.diagnostico = None
+        self.diagnostico = []
 
     # ANSIEDAD POR SEPARACIÓN
     @Rule(Fact(Sintomas.ANGUSTIA_ALTA), Fact(Sintomas.APEGO_ALTO))
     def ansiedad_por_separacion(self):
-        self.diagnostico = Diagnostico.ANSIEDAD_POR_SEPARACION
+        self.diagnostico.append(Diagnostico.ANSIEDAD_POR_SEPARACION)
 
     # ANSIEDAD GENERALIZADA
     @Rule(
@@ -59,7 +59,7 @@ class Diagnosticador(KnowledgeEngine):
         Fact(AntecedentesFamiliares.SI),
     )
     def ansiedad_generalizada(self):
-        self.diagnostico = Diagnostico.ANSIEDAD_GENERALIZADA
+        self.diagnostico.append(Diagnostico.ANSIEDAD_GENERALIZADA)
 
     # TRASTORNO DE PANICO
     @Rule(
@@ -71,17 +71,17 @@ class Diagnosticador(KnowledgeEngine):
         ),
     )
     def panico(self):
-        self.diagnostico = Diagnostico.TRASTORNO_DE_PANICO
+        self.diagnostico.append(Diagnostico.TRASTORNO_DE_PANICO)
 
     # ANSIEDAD SOCIAL
     @Rule(
         OR(Fact(Sintomas.MIEDO_IRRACIONAL_ALTO)), Fact(Sintomas.DIFICULTAD_SOCIAL_ALTA)
     )
     def ansiedad_social(self):
-        self.diagnostico = Diagnostico.FOBIA_SOCIAL
+        self.diagnostico.append(Diagnostico.FOBIA_SOCIAL)
 
     # DEFAULT RULE
     @Rule()
     def default(self):
         if not self.diagnostico:
-            self.diagnostico = Diagnostico.SIN_DIAGNOSTICO
+            self.diagnostico = [Diagnostico.SIN_DIAGNOSTICO]

@@ -40,7 +40,10 @@ async def diagnostico(request: DiagnosticoRequest):
     experto_diagnosticador.run()
 
     if experto_diagnosticador.diagnostico:
-        return {"diagnóstico": experto_diagnosticador.diagnostico}
+        stringDiagnostico = experto_diagnosticador.diagnostico[0].value
+        for diag in experto_diagnosticador.diagnostico[1:]:
+            stringDiagnostico += ", " + diag.value
+        return {"diagnóstico": stringDiagnostico}
     raise HTTPException(status_code=400, detail="No se pudo realizar el diagnóstico.")
 
 
