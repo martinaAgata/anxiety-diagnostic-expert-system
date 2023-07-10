@@ -24,7 +24,7 @@ export default function MyApp({ Component, pageProps }) {
 
     return (
         <ChakraProvider>
-            <div className="min-h-screen" style={{ backgroundImage: 'linear-gradient(to bottom, #ffffff, #ff9a8d)' }}>
+            <div className="min-h-screen" style={{ backgroundImage: 'linear-gradient(to bottom, #ffffff, #8CA9AD)' }}>
                 <div className="content-container">
                     <Component {...pageProps} userMode={userMode} />
                 </div>

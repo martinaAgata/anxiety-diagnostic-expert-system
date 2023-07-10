@@ -1,6 +1,16 @@
 import NextLink from 'next/link'
 import { useState } from 'react';
 
+
+
+const diagnostic_description = {
+  "Trastorno de ansiedad por separación": "Ansiedad excesiva por separarse de personas significativas o del hogar, con síntomas como angustia, preocupación por perder a los seres queridos, resistencia a ir a lugares sin ellos, pesadillas y quejas físicas recurrentes.",
+  "Trastorno de ansiedad generalizada": "Ansiedad y preocupación excesiva sin control, con síntomas como dificultad para controlar la preocupación, inquietud, fatiga, dificultad para concentrarse, irritabilidad y malestar significativo en áreas importantes del funcionamiento.",
+  "Trastorno de ansiedad social (fobia social)": "Miedo intenso o ansiedad en situaciones sociales donde se teme ser juzgado o avergonzado, con síntomas como temor persistente, evitación de situaciones sociales, dificultades en las relaciones sociales, ansiedad anticipatoria y reconocimiento de que el miedo es irracional.",
+  "Trastorno de pánico": "Ataques de pánico recurrentes e inesperados, con síntomas como miedo intenso, palpitaciones, sudoración, dificultad para respirar, opresión en el pecho, mareos, miedo a perder el control o morir, y cambios en el comportamiento para evitar los ataques o situaciones desencadenantes.",
+  "No se ha podido diagnosticar": ""
+}
+
 const fields = [
   {
     labelText: 'Antecedentes familiares',
@@ -76,15 +86,22 @@ const parseBody = (input) => {
 
 const DiagnosticResult = ({ result }) => {
   return (
-    <div>
+    <div className="mx-auto">
       <div className="flex justify-center">
         <h1 className="text-xl font-semibold leading-7 text-gray-900 mb-5">Resultado del diagnóstico</h1>
       </div>
-      <h2 className="">{result["diagnóstico"]}</h2>
+      <div className="flex justify-center">
+        <h2>{result["diagnóstico"]}</h2>
+      </div>
+      <div className="flex justify-center mt-10">
+        <div className="w-1/2 mx-auto text-center">
+          <h4>{diagnostic_description[result["diagnóstico"]]}</h4>
+        </div>
+      </div>
       <div className="flex justify-center mt-10">
         <NextLink
           href="/home"
-          className="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+          className="rounded-md bg-teal-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-900"
         >
           Volver
         </NextLink>
@@ -92,6 +109,7 @@ const DiagnosticResult = ({ result }) => {
     </div>
   );
 };
+
 
 export default function Test() {
   const [formData, setFormData] = useState({});
@@ -172,7 +190,7 @@ export default function Test() {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <h2 className="text-xl font-semibold leading-7 text-gray-900">Test de diagnóstico</h2>
-              <p  className="mt-1 text-sm leading-6 text-gray-600">Completar con información del paciente</p>
+              <p className="mt-1 text-sm leading-6 text-gray-600">Completar con información del paciente</p>
 
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
                 {renderSelectFields(fields)}
@@ -190,7 +208,7 @@ export default function Test() {
             </NextLink>
             <button
               type="submit"
-              className="rounded-md bg-black-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              className="rounded-md bg-teal-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
               Diagnosticar
             </button>
