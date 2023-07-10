@@ -84,8 +84,15 @@ const parseBody = (input) => {
   }
 }
 
+function removeDuplicates(arr) {
+  return arr.filter((item,
+      index) => arr.indexOf(item) === index);
+}
+
+
 const showDiagnostics = (diagnostics) => {
   let array = diagnostics.split(", ")
+  array = removeDuplicates(array)
   console.log(array)
   return (
     array.map(d => {
