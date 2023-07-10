@@ -84,20 +84,43 @@ const parseBody = (input) => {
   }
 }
 
+const showDiagnostics = (diagnostics) => {
+  let array = diagnostics.split(", ")
+  console.log(array)
+  return (
+    array.map(d => {
+      return (
+        <>
+          <div className="flex justify-center">
+            <h2 className='mt-10 font-semibold'>{d}</h2>
+          </div>
+          <div className="flex justify-center mt-10">
+            <div className="w-1/2 mx-auto text-center">
+              <h4>{diagnostic_description[d]}</h4>
+            </div>
+          </div>
+        </>
+      )
+    }
+    )
+  );
+}
+
 const DiagnosticResult = ({ result }) => {
   return (
     <div className="mx-auto">
       <div className="flex justify-center">
-        <h1 className="text-xl font-semibold leading-7 text-gray-900 mb-5">Resultado del diagnóstico</h1>
+        <h1 className="text-xl font-bold leading-7 text-gray-900">Resultado del diagnóstico</h1>
       </div>
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <h2>{result["diagnóstico"]}</h2>
       </div>
       <div className="flex justify-center mt-10">
         <div className="w-1/2 mx-auto text-center">
           <h4>{diagnostic_description[result["diagnóstico"]]}</h4>
         </div>
-      </div>
+      </div> */}
+      {showDiagnostics(result["diagnóstico"])}
       <div className="flex justify-center mt-10">
         <NextLink
           href="/home"
